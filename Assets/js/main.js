@@ -26,7 +26,23 @@ window.onload = () => {
   render(data[0]);
 };
 
-previous.addEventListener("click", () => {
+window.addEventListener("keydown", (e) => {
+  const keyCode = e.code;
+
+  switch (keyCode) {
+    case "ArrowRight":
+      nextCard();
+      break;
+    case "ArrowLeft":
+      previousCard();
+      break;
+  }
+});
+
+previous.addEventListener("click", previousCard);
+next.addEventListener("click", nextCard);
+
+function previousCard() {
   if (counter <= 0) {
     counter = data.length - 1;
   } else {
@@ -34,9 +50,9 @@ previous.addEventListener("click", () => {
   }
 
   render(data[counter]);
-});
+}
 
-next.addEventListener("click", () => {
+function nextCard() {
   if (counter + 1 == data.length) {
     counter = 0;
   } else {
@@ -44,7 +60,7 @@ next.addEventListener("click", () => {
   }
 
   render(data[counter]);
-});
+}
 
 function render(item) {
   name.textContent = item.name;
