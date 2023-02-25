@@ -22,10 +22,6 @@ const previous = document.querySelector('button[aria-label="previous"]');
 const next = document.querySelector('button[aria-label="next"]');
 let counter = 0;
 
-window.onload = () => {
-  render(data[0]);
-};
-
 window.addEventListener("keydown", (e) => {
   const keyCode = e.code;
 
